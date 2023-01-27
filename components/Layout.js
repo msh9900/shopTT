@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Store } from "utils/Store";
 import DropdownLink from "./DropdownLink";
 import Cookies from "js-cookie";
+import DarkModeToggleButton from "./dark-mode-toggle-button";
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -37,12 +38,13 @@ export default function Layout({ title, children }) {
       <ToastContainer position="bottom-center" limit={1} />
 
       <div className="flex min-h-screen flex-col justify-between">
-        <header>
+        <header className="Header">
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/" className="text-lg font-bold">
               TT
             </Link>
             <div>
+              <DarkModeToggleButton />
               <Link href="/cart" className="p-2">
                 장바구니
                 {cartItemsCount > 0 && (
@@ -60,10 +62,6 @@ export default function Layout({ title, children }) {
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white  shadow-lg">
-                    <Menu.Item>
-                      <DropdownLink href="/profile">마이페이지</DropdownLink>
-                    </Menu.Item>
-
                     <Menu.Item>
                       <DropdownLink href="/order-history">
                         주문 내역

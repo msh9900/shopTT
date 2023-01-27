@@ -93,6 +93,18 @@ const data = {
       countInStock: 20,
       description: "A popular pants",
     },
+    {
+      name: "test",
+      slug: "test",
+      category: "test",
+      image: "/images/pants3.jpg",
+      price: 75,
+      brand: "test",
+      rating: 2.4,
+      numReviews: 14,
+      countInStock: 20,
+      description: "test",
+    },
   ],
 };
 
