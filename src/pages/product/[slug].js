@@ -1,28 +1,30 @@
 import Image from "next/image";
 import Layout from "components/Layout";
 import Link from "next/link";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React, { useContext } from "react";
-import data from "utils/data";
 import { Store } from "utils/Store";
+import db from "utils/db";
+import Product from "models/Product";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-export default function ProductScreen() {
+export default function ProductScreen(props) {
+  const { product } = props;
   const { state, dispatch } = useContext(Store);
   const router = useRouter();
-  const { query } = useRouter();
-  const { slug } = query;
-  const product = data.products.find((x) => x.slug === slug);
 
   if (!product) {
-    return <div>Product Not Found</div>;
+    return <Layout title="Product Not Found">Product Not Found</Layout>;
   }
 
-  const addToCartHandler = () => {
+  const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
+    const { data } = await axios.get(`/api/products/${products._id}`);
 
-    if (product.countInStock < quantity) {
-      alert("재고가 부족합니다");
+    if (data.countInStock < quantity) {
+      return toast.error("상품재고가 없습니다.", { autoClose: 2000 });
     }
     dispatch({
       type: "CART_ADD_ITEM",
@@ -80,4 +82,18 @@ export default function ProductScreen() {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { params } = context;
+  const { slug } = params;
+
+  await db.connect();
+  const product = await Product.findOne({ slug }).lean();
+  await db.disconnect();
+  return {
+    props: {
+      product: product ? db.convertDocToObj(product) : null,
+    },
+  };
 }
