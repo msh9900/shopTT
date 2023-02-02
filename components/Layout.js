@@ -12,7 +12,7 @@ import DarkModeToggleButton from "./dark-mode-toggle-button";
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
-
+  const [darkMode, setDarkMode] = useState(false);
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -25,7 +25,9 @@ export default function Layout({ title, children }) {
     dispatch({ type: "CART_RESET" });
     signOut({ callbackUrl: "/login" });
   };
-
+  const darkModeClickHandler = () => {
+    setDarkMode(!darkMode);
+  };
   return (
     <>
       <Head>
@@ -41,10 +43,13 @@ export default function Layout({ title, children }) {
         <header className="Header">
           <nav className="flex h-12 items-center px-4 justify-between shadow-md">
             <Link href="/" className="text-lg font-bold">
-              TT
+              Shop TT
             </Link>
             <div>
-              <DarkModeToggleButton />
+              {darkMode === true ? "다크모드적용" : "다크모드미적용"}
+              <DarkModeToggleButton click={darkModeClickHandler} />
+            </div>
+            <div>
               <Link href="/cart" className="p-2">
                 장바구니
                 {cartItemsCount > 0 && (

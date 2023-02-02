@@ -18,7 +18,7 @@ a {
   @apply text-blue-600 hover:text-blue-800;
 }
 .card {
-  @apply mb-5 block rounded-lg border-gray-200 shadow-md 
+  @apply mb-5 block rounded-lg border-gray-200 shadow-md  bg-orange-400
         dark:bg-slate-400;
 }
 .Header {

@@ -47,7 +47,7 @@ function CartScreen() {
                   <th className="px-5 text-left">Item</th>
                   <th className="p-5 text-right">수량</th>
                   <th className="p-5 text-right">가격</th>
-                  <th className="p-5">Action</th>
+                  <th className="p-5">삭제</th>
                 </tr>
               </thead>
               <tbody>
@@ -97,8 +97,8 @@ function CartScreen() {
             <ul>
               <li>
                 <div className="pb-3 text-xl">
-                  Subtotal({cartItems.reduce((a, c) => a + c.quantity, 0)}){""}:
-                  ${cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
+                  합계({cartItems.reduce((a, c) => a + c.quantity, 0)}):
+                  {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}원
                 </div>
               </li>
               <li>

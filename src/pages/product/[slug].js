@@ -55,9 +55,6 @@ export default function ProductScreen(props) {
             </li>
             <li>카테고리:{product.category}</li>
             <li>브랜드명:{product.brand}</li>
-            <li>
-              {product.rating} of {product.numReviews} 리뷰
-            </li>
             <li>설명:{product.description}</li>
           </ul>
         </div>
@@ -65,12 +62,9 @@ export default function ProductScreen(props) {
           <div className="card p-5">
             <div className="mb-2 flex justify-between">
               <div>가격</div>
-              <div>${product.price}</div>
+              <div>{product.price}원</div>
             </div>
-            <div className="mb-2 flex justify-between">
-              <div>Status</div>
-              <div>{product.countInStock > 0 ? "in stock" : "Unavailable"}</div>
-            </div>
+
             <button
               className="primary-button w-full"
               onClick={addToCartHandler}

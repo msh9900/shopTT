@@ -8,6 +8,7 @@ export default function ProductItem({ product, addToCartHandler }) {
         <img
           src={product.image}
           alt={product.name}
+          style={{ width: "100%", height: 200, objectFit: "fill" }}
           className="rounded shadow"
         />
       </Link>
@@ -17,7 +18,7 @@ export default function ProductItem({ product, addToCartHandler }) {
           <h2 className="text-lg">{product.name}</h2>
         </Link>
         <p className="mb-2">{product.brand}</p>
-        <p>${product.price}</p>
+        <p>{product.price}원</p>
         <button
           className="primary-button"
           type="button"

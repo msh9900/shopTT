@@ -37,7 +37,7 @@ function OrderHistoryScreen() {
   }, []);
   return (
     <Layout title="Order History">
-      <h1 className="mb-4 text-xl">Order History</h1>
+      <h1 className="mb-4 text-xl">주문 내역</h1>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
@@ -48,11 +48,11 @@ function OrderHistoryScreen() {
             <thead className="border-b">
               <tr>
                 <th className="px-5 text-left">ID</th>
-                <th className="p-5 text-left">DATE</th>
-                <th className="p-5 text-left">TOTAL</th>
-                <th className="p-5 text-left">PAID</th>
-                <th className="p-5 text-left">DELIVERED</th>
-                <th className="p-5 text-left">ACTION</th>
+                <th className="p-5 text-left">주문날짜</th>
+                <th className="p-5 text-left">합계</th>
+                <th className="p-5 text-left">지불상태</th>
+                <th className="p-5 text-left">배달상태</th>
+                <th className="p-5 text-left">자세한 내용</th>
               </tr>
             </thead>
             <tbody>
