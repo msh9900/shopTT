@@ -53,15 +53,15 @@ export default function ShippingScreen() {
         className="mx-auto max-w-screnen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
-        <h1 className="mb-4 text-xl">Shipping Address</h1>
+        <h1 className="mb-4 text-xl">배달 정보</h1>
         <div className="mb-4">
-          <label htmlFor="fullName">Full Name</label>
+          <label htmlFor="fullName">이름</label>
           <input
             className="w-full"
             id="fullName"
             autoFocus
             {...register("fullName", {
-              required: "Please enter full name",
+              required: "이름을 입력해주세요",
             })}
           />
           {errors.fullName && (
@@ -69,26 +69,12 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="address">Address</label>
-          <input
-            className="w-full"
-            id="address"
-            {...register("address", {
-              required: "Please enter address",
-              minLength: { value: 3, message: "Address is more than 2 chars" },
-            })}
-          />
-          {errors.address && (
-            <div className="text-red-500">{errors.address.message}</div>
-          )}
-        </div>
-        <div className="mb-4">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city">지역</label>
           <input
             className="w-full"
             id="city"
             {...register("city", {
-              required: "Please enter city",
+              required: "지역을 입력해주세요",
             })}
           />
           {errors.city && (
@@ -96,12 +82,26 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="postalCode">Postal Code</label>
+          <label htmlFor="address">상세주소</label>
+          <input
+            className="w-full"
+            id="address"
+            {...register("address", {
+              required: "상세주소를 입력해주세요",
+              minLength: { value: 3, message: "3글자 이상 입력하시오." },
+            })}
+          />
+          {errors.address && (
+            <div className="text-red-500">{errors.address.message}</div>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="postalCode">우편번호</label>
           <input
             className="w-full"
             id="postalCode"
             {...register("postalCode", {
-              required: "Please enter postal code",
+              required: "우편번호를 입력해주세요",
             })}
           />
           {errors.postalCode && (
@@ -109,12 +109,12 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">국가</label>
           <input
             className="w-full"
             id="country"
             {...register("country", {
-              required: "Please enter country",
+              required: "국가를 입력해주세요",
             })}
           />
           {errors.country && (
@@ -122,7 +122,7 @@ export default function ShippingScreen() {
           )}
         </div>
         <div className="mb-4 flex justify-between">
-          <button className="primary-button">Next</button>
+          <button className="primary-button">다음</button>
         </div>
       </form>
     </Layout>

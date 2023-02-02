@@ -43,7 +43,7 @@ export default function LoginScreen() {
       >
         <h1 className="mb-4 text-xl">로그인</h1>
         <div className="mb-4">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">이메일</label>
           <input
             type="email"
             {...register("email", {
@@ -62,7 +62,7 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">비밀번호</label>
           <input
             type="password"
             {...register("password", {
@@ -81,7 +81,7 @@ export default function LoginScreen() {
           )}
         </div>
         <div className="mb-4">
-          <button className="primary-button">Login</button>
+          <button className="primary-button">로그인</button>
         </div>
         <div>
           회원이 아니신가요? &nbsp;

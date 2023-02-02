@@ -42,7 +42,7 @@ export default function PaymentScreen() {
     <Layout title="Payment Method">
       <CheckoutWizard activeStep={2} />
       <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
-        <h1 className="mb-4 text-xl">Payment Method</h1>
+        <h1 className="mb-4 text-xl">지불 방법</h1>
         {["PayPal", "Stripe", "CashOnDelivery"].map((payment) => (
           <div key={payment} className="mb-4">
             <input
@@ -65,9 +65,9 @@ export default function PaymentScreen() {
             type="button"
             className="default-button"
           >
-            Back
+            뒤로가기
           </button>
-          <button className="primary-button">Next</button>
+          <button className="primary-button">다음</button>
         </div>
       </form>
     </Layout>
