@@ -44,7 +44,7 @@ function CartScreen() {
             <table className="min-w-full">
               <thead className="border-b">
                 <tr>
-                  <th className="px-5 text-left">Item</th>
+                  <th className="px-5 text-left">상품</th>
                   <th className="p-5 text-right">수량</th>
                   <th className="p-5 text-right">가격</th>
                   <th className="p-5">삭제</th>
