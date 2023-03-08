@@ -7,7 +7,6 @@ import { Store } from "utils/Store";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import axios from "axios";
-import { data } from "autoprefixer";
 import { toast } from "react-toastify";
 
 function CartScreen() {
